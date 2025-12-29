@@ -466,9 +466,9 @@ const App: React.FC = () => {
                         {status === AppStatus.ANALYZING && (
                              <div className="space-y-3">
                                 <p className={`text-xs tracking-widest border-b pb-2 mb-4 ${severity === 'HOSTILE' ? 'text-alert border-alert/20' : 'text-cyber border-cyber/20'}`}>GENESIS PROTOCOL: ENGAGED</p>
-                                <p className="text-white/80">> TARGET IDENTIFIED.</p>
-                                <p className="text-white/80">> COMPILING LEVERAGE POINTS...</p>
-                                <p className="text-alert animate-pulse mt-4">> 3 CRITICAL VULNERABILITIES DETECTED.</p>
+                                <p className="text-white/80">{"> TARGET IDENTIFIED."}</p>
+                                <p className="text-white/80">{"> COMPILING LEVERAGE POINTS..."}</p>
+                                <p className="text-alert animate-pulse mt-4">{"> 3 CRITICAL VULNERABILITIES DETECTED."}</p>
                                 <p className={`mt-2 text-xs ${severity === 'HOSTILE' ? 'text-alert/60' : 'text-cyber/60'}`}>Architecting Solution...</p>
                              </div>
                         )}
