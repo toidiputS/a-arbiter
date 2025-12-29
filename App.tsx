@@ -456,9 +456,9 @@ const App: React.FC = () => {
                                     <div className={`h-full animate-[width_2s_ease-in-out_infinite] w-1/3 ${severity === 'HOSTILE' ? 'bg-alert' : 'bg-cyber'}`}></div>
                                 </div>
                                 <div className={`font-mono text-[10px] space-y-1 mt-4 ${severity === 'HOSTILE' ? 'text-alert/40' : 'text-cyber/40'}`}>
-                                    <p>> ACCESSING SECURE LEDGER...</p>
-                                    <p>> PARSING LEGAL VECTORS...</p>
-                                    <p>> ENCRYPTING OUTPUT STREAM...</p>
+                                    <p>{'>', ' ACCESSING SECURE LEDGER...'}</p>
+                                    <p>{'>', ' PARSING LEGAL VECTORS...'}</p>
+                                    <p>{'>', ' ENCRYPTING OUTPUT STREAM...'}</p>
                                 </div>
                              </div>
                         )}
