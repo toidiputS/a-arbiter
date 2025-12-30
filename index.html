@@ -4,19 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PROTOCOL: ARBITER // CONTRACTS</title>
-    
+
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="manifest.json" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#000000">
-    
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -24,49 +31,51 @@
         theme: {
           extend: {
             colors: {
-              cyber: '#32CD32', // Cyber Lime
-              alert: '#FF0000', // Alert Red
-              void: '#030303',  // Deep Black
-              glass: 'rgba(10, 10, 10, 0.80)',
+              cyber: "#32CD32", // Cyber Lime
+              alert: "#FF0000", // Alert Red
+              void: "#030303", // Deep Black
+              glass: "rgba(10, 10, 10, 0.80)",
             },
             fontFamily: {
-              mono: ['"Roboto Mono"', 'monospace'],
+              mono: ['"Roboto Mono"', "monospace"],
             },
             boxShadow: {
-              'neon': '0 0 10px rgba(50, 205, 50, 0.3), 0 0 20px rgba(50, 205, 50, 0.1)',
-              'alert': '0 0 10px rgba(255, 0, 0, 0.4)',
-              'panel': '0 20px 50px -12px rgba(0, 0, 0, 1)',
+              neon: "0 0 10px rgba(50, 205, 50, 0.3), 0 0 20px rgba(50, 205, 50, 0.1)",
+              alert: "0 0 10px rgba(255, 0, 0, 0.4)",
+              panel: "0 20px 50px -12px rgba(0, 0, 0, 1)",
             },
             animation: {
-              'scan': 'scan 4s linear infinite',
-              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'flash-success': 'flashSuccess 2s infinite',
+              scan: "scan 4s linear infinite",
+              "pulse-fast": "pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "flash-success": "flashSuccess 2s infinite",
             },
             keyframes: {
               scan: {
-                '0%': { top: '-10%', opacity: '0' },
-                '10%': { opacity: '1' },
-                '90%': { opacity: '1' },
-                '100%': { top: '110%', opacity: '0' },
+                "0%": { top: "-10%", opacity: "0" },
+                "10%": { opacity: "1" },
+                "90%": { opacity: "1" },
+                "100%": { top: "110%", opacity: "0" },
               },
               flashSuccess: {
-                '0%, 100%': { opacity: '1', textShadow: '0 0 10px #32CD32' },
-                '50%': { opacity: '0.5', textShadow: 'none' },
-              }
-            }
-          }
-        }
-      }
+                "0%, 100%": { opacity: "1", textShadow: "0 0 10px #32CD32" },
+                "50%": { opacity: "0.5", textShadow: "none" },
+              },
+            },
+          },
+        },
+      };
     </script>
     <style>
       body {
         background-color: #030303;
         color: #e5e5e5;
-        font-family: 'Roboto Mono', monospace;
+        font-family: "Roboto Mono", monospace;
         overflow-x: hidden;
         /* Tactical Grid Background */
-        background-image: 
-          linear-gradient(rgba(50, 205, 50, 0.03) 1px, transparent 1px),
+        background-image: linear-gradient(
+            rgba(50, 205, 50, 0.03) 1px,
+            transparent 1px
+          ),
           linear-gradient(90deg, rgba(50, 205, 50, 0.03) 1px, transparent 1px);
         background-size: 40px 40px;
       }
@@ -79,7 +88,7 @@
         background: #000;
       }
       ::-webkit-scrollbar-thumb {
-        background: #32CD32;
+        background: #32cd32;
         border-radius: 0;
       }
       ::-webkit-scrollbar-thumb:hover {
@@ -88,54 +97,70 @@
 
       /* Premium Glass Panel */
       .glass-panel {
-        background: rgba(10, 10, 10, 0.6);
-        backdrop-filter: blur(20px);
+        background: rgba(10, 10, 10, 0.75);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(50, 205, 50, 0.15);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(50, 205, 50, 0.35);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         position: relative;
         overflow: hidden; /* For corner accents */
       }
-      
+
       /* Tech Corner Brackets */
       .tech-corner {
         position: absolute;
         width: 8px;
         height: 8px;
-        border-color: rgba(50, 205, 50, 0.4);
+        border-color: rgba(50, 205, 50, 0.6);
         border-style: solid;
         transition: all 0.4s ease;
         z-index: 10;
         pointer-events: none;
       }
-      .tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
-      .tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
-      .bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
-      .br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+      .tl {
+        top: 0;
+        left: 0;
+        border-width: 1px 0 0 1px;
+      }
+      .tr {
+        top: 0;
+        right: 0;
+        border-width: 1px 1px 0 0;
+      }
+      .bl {
+        bottom: 0;
+        left: 0;
+        border-width: 0 0 1px 1px;
+      }
+      .br {
+        bottom: 0;
+        right: 0;
+        border-width: 0 1px 1px 0;
+      }
 
       .group:hover .tech-corner {
         width: 16px;
         height: 16px;
-        border-color: #32CD32;
+        border-color: #32cd32;
         box-shadow: 0 0 8px rgba(50, 205, 50, 0.6);
       }
 
       /* High Ticket Inputs */
       .tech-input {
-        background: rgba(0, 0, 0, 0.6);
-        border: 1px solid rgba(50, 205, 50, 0.1);
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(50, 205, 50, 0.25);
         color: #fff;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         font-weight: 300;
       }
       .tech-input:focus {
-        border-color: #32CD32;
+        border-color: #32cd32;
         box-shadow: inset 0 0 15px rgba(50, 205, 50, 0.05);
         background: rgba(0, 0, 0, 0.8);
         outline: none;
       }
       .tech-input::placeholder {
-        color: rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.35);
         text-transform: uppercase;
         letter-spacing: 0.05em;
         font-size: 0.75rem;
@@ -146,15 +171,15 @@
         left: 0;
         width: 100%;
         height: 2px;
-        background: linear-gradient(to right, 
-          transparent 0%, 
-          rgba(255, 0, 0, 0.3) 15%, 
-          rgba(50, 205, 50, 0.9) 50%, 
-          rgba(255, 0, 0, 0.3) 85%, 
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(255, 0, 0, 0.3) 15%,
+          rgba(50, 205, 50, 0.9) 50%,
+          rgba(255, 0, 0, 0.3) 85%,
           transparent 100%
         );
-        box-shadow: 
-          0 0 15px rgba(50, 205, 50, 0.6),
+        box-shadow: 0 0 15px rgba(50, 205, 50, 0.6),
           0 0 5px rgba(255, 0, 0, 0.4);
         animation: scan 4s linear infinite;
         pointer-events: none;
@@ -171,9 +196,11 @@
       .markdown-content strong {
         color: #fff;
         font-weight: 700;
-        text-shadow: 0 0 5px rgba(255,255,255,0.3);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
       }
-      .markdown-content h1, .markdown-content h2, .markdown-content h3 {
+      .markdown-content h1,
+      .markdown-content h2,
+      .markdown-content h3 {
         color: #fff;
         font-weight: 700;
         margin-top: 2rem;
@@ -184,12 +211,12 @@
         letter-spacing: 0.05em;
       }
       .markdown-content blockquote {
-        border-left: 3px solid #32CD32;
+        border-left: 3px solid #32cd32;
         background: rgba(50, 205, 50, 0.05);
         padding: 1rem;
         margin: 1.5rem 0;
         font-style: italic;
-        color: #32CD32;
+        color: #32cd32;
         position: relative;
       }
       /* Scorecard Table Styling */
@@ -198,25 +225,25 @@
         border-collapse: separate;
         border-spacing: 0;
         margin: 1.5rem 0;
-        border: 1px solid #32CD32;
+        border: 1px solid #32cd32;
         font-size: 0.85rem;
       }
       .markdown-content th {
-        border-bottom: 1px solid #32CD32;
+        border-bottom: 1px solid #32cd32;
         border-right: 1px solid rgba(50, 205, 50, 0.2);
         padding: 0.75rem;
         text-align: left;
         background: rgba(50, 205, 50, 0.15);
-        color: #32CD32;
+        color: #32cd32;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         font-weight: 700;
       }
       .markdown-content td {
-        border-bottom: 1px solid rgba(50, 205, 50, 0.2);
-        border-right: 1px solid rgba(50, 205, 50, 0.1);
+        border-bottom: 1px solid rgba(50, 205, 50, 0.3);
+        border-right: 1px solid rgba(50, 205, 50, 0.2);
         padding: 0.75rem;
-        color: rgba(255, 255, 255, 0.9);
+        color: rgba(255, 255, 255, 0.95);
       }
       .markdown-content tr:last-child td {
         border-bottom: none;
@@ -233,23 +260,20 @@
         position: relative;
         overflow: hidden;
         border-radius: 2px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
       }
       .markdown-content code {
-        font-family: 'Roboto Mono', monospace;
+        font-family: "Roboto Mono", monospace;
       }
       .markdown-content p code {
         background: rgba(50, 205, 50, 0.1);
         padding: 2px 4px;
         border-radius: 2px;
-        color: #32CD32;
+        color: #32cd32;
         font-size: 0.8em;
       }
 
-      /* MIRROR REFLECTION UTILITY FOR CARDS */
-      .card-reflect {
-        -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.0) 70%, rgba(50, 205, 50, 0.05));
-      }
+
 
       /* AGENT ALPHA BUTTONS */
       .btn-reflect-base {
@@ -267,7 +291,7 @@
         justify-content: center;
         position: relative;
         letter-spacing: 0.15em;
-        font-family: 'Roboto Mono', monospace;
+        font-family: "Roboto Mono", monospace;
       }
       .btn-reflect-base:active {
         transform: scale(0.99);
@@ -279,68 +303,72 @@
       }
       .btn-reflect-primary {
         background-color: #080808;
-        color: #32CD32;
+        color: #32cd32;
         box-shadow: 0px 0px 30px rgba(50, 205, 50, 0.1);
-        -webkit-box-reflect: below 2px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2));
         border: 1px solid rgba(50, 205, 50, 0.3);
       }
       .btn-reflect-primary:hover:not(:disabled) {
-        background: #32CD32;
+        background: #32cd32;
         color: #000;
-        border-color: #32CD32;
+        border-color: #32cd32;
         box-shadow: 0px 0px 40px rgba(50, 205, 50, 0.5);
       }
       .btn-reflect-secondary {
         background-color: transparent;
-        color: rgba(255, 255, 255, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.25);
       }
       .btn-reflect-secondary:hover:not(:disabled) {
-        border-color: rgba(255, 255, 255, 0.3);
-        color: rgba(255, 255, 255, 0.8);
+        border-color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.9);
       }
       .btn-reflect-ghost {
         background: transparent;
-        color: #9CA3AF;
+        color: #9ca3af;
         padding: 0.5rem 1rem;
         font-size: 0.75rem;
       }
       .btn-reflect-ghost:hover {
         color: white;
-        background: rgba(255,255,255,0.05);
+        background: rgba(255, 255, 255, 0.05);
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-    "react-markdown": "https://esm.sh/react-markdown@9.0.1?bundle",
-    "remark-gfm": "https://esm.sh/remark-gfm@4.0.0?bundle"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+    <script src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script>
+      importShim.addImportMap({
+        imports: {
+          "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+          "react/": "https://esm.sh/react@^19.2.3/",
+          "react": "https://esm.sh/react@^19.2.3",
+          "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+          "react-markdown": "https://esm.sh/react-markdown@9.0.1?bundle",
+          "remark-gfm": "https://esm.sh/remark-gfm@4.0.0?bundle"
+        }
+      });
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
   <body>
     <div id="root"></div>
     <div class="scan-line"></div>
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js')
-            .then(registration => {
-              console.log('Arbiter Protocol: SW Registered with scope:', registration.scope);
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("sw.js")
+            .then((registration) => {
+              console.log(
+                "Arbiter Protocol: SW Registered with scope:",
+                registration.scope
+              );
             })
-            .catch(error => {
-              console.log('Arbiter Protocol: SW Registration failed:', error);
+            .catch((error) => {
+              console.log("Arbiter Protocol: SW Registration failed:", error);
             });
         });
       }
     </script>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>

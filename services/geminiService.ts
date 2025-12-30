@@ -71,11 +71,11 @@ export const executeArbiterProtocol = async (
   history: string,
   contractText: string
 ): Promise<string> => {
-  if (!process.env.API_KEY) {
-    throw new Error("Missing Sovereign Link (API_KEY)");
+  if (!process.env.GEMINI_API_KEY) {
+    throw new Error("Missing Sovereign Link (GEMINI_API_KEY)");
   }
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   
   const prompt = `
     DEPLOYMENT TRIGGER: "Reviewing legal exposure" & "Locking in IP"
